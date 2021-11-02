@@ -20,6 +20,7 @@ lazy_static = "1.4"
 [features]
 serialize = ["serde"]
 unstable_grab = ["evdev-rs", "epoll", "inotify"]
+macos_noloop = []
 
 [target.'cfg(target_os = "macos")'.dependencies]
 cocoa = "0.22"

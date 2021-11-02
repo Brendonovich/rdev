@@ -57,6 +57,8 @@ where
         CFRunLoopAddSource(current_loop, _loop, kCFRunLoopCommonModes);
 
         CGEventTapEnable(tap, true);
+        
+        #[cfg(not(feature = "macos_noloop"))]
         CFRunLoopRun();
     }
     Ok(())
