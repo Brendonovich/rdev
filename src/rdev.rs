@@ -99,6 +99,7 @@ impl std::error::Error for SimulateError {}
 /// get modified if NumLock is Off and ARE pagedown and so on.
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 #[cfg_attr(feature = "serialize", derive(Serialize, Deserialize))]
+#[cfg_attr(feature = "specta", derive(specta::Type))]
 pub enum Key {
     /// Alt key on Linux and Windows (option key on macOS)
     Alt,
@@ -216,6 +217,7 @@ pub enum Key {
 /// OSs will give different `Button::Unknown` values.
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 #[cfg_attr(feature = "serialize", derive(Serialize, Deserialize))]
+#[cfg_attr(feature = "specta", derive(specta::Type))]
 pub enum Button {
     Left,
     Right,
@@ -227,6 +229,7 @@ pub enum Button {
 /// match to account for all possible events.
 #[derive(Debug, Copy, Clone, PartialEq)]
 #[cfg_attr(feature = "serialize", derive(Serialize, Deserialize))]
+#[cfg_attr(feature = "specta", derive(specta::Type))]
 pub enum EventType {
     /// The keys correspond to a standard qwerty layout, they don't correspond
     /// To the actual letter a user would use, that requires some layout logic to be added.
@@ -258,6 +261,7 @@ pub enum EventType {
 /// a dead key, and the raw letter instead of accentuated letter.
 #[derive(Debug, Clone, PartialEq)]
 #[cfg_attr(feature = "serialize", derive(Serialize, Deserialize))]
+#[cfg_attr(feature = "specta", derive(specta::Type))]
 pub struct Event {
     pub time: SystemTime,
     pub name: Option<String>,
