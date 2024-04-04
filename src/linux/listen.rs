@@ -94,7 +94,12 @@ unsafe extern "C" fn record_callback(
         return;
     }
 
-    debug_assert!(data.data_len * 4 >= std::mem::size_of::<XRecordDatum>().try_into().unwrap());
+    #[debug_assertions]
+    {
+        let data_len: u64 = data.data_len * 4;
+        let min: u64 = std::mem::size_of::<XRecordDatum>().try_into().unwrap();
+        assert!(data_len >= min);
+    }
     // Cast binary data
     #[allow(clippy::cast_ptr_alignment)]
     let xdatum = (data.data as *const XRecordDatum).as_ref().unwrap();
