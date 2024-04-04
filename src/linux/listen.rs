@@ -94,7 +94,7 @@ unsafe extern "C" fn record_callback(
         return;
     }
 
-    #[debug_assertions]
+    #[cfg(debug_assertions)]
     {
         let data_len: u64 = data.data_len * 4;
         let min: u64 = std::mem::size_of::<XRecordDatum>().try_into().unwrap();
