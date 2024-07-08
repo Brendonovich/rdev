@@ -14,7 +14,7 @@ categories = ["development-tools::testing", "api-bindings", "hardware-support"]
 license = "MIT"
 
 [dependencies]
-specta = { optional = true, version = "=2.0.0-rc.7" }
+specta = { optional = true, version = "^2.0.0-rc.7" }
 serde = { version = "1.0", features = ["derive"], optional = true }
 lazy_static = "1.4"
 
@@ -38,9 +38,9 @@ inotify = { version = "0.8.2", default-features = false, optional = true }
 
 [target.'cfg(target_os = "windows")'.dependencies]
 winapi = { version = "0.3", features = [
-    "winuser",
-    "errhandlingapi",
-    "processthreadsapi",
+  "winuser",
+  "errhandlingapi",
+  "processthreadsapi",
 ] }
 
 [dev-dependencies]
